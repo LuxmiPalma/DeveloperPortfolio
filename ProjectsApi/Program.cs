@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using ProjectsApi.Data;
+
 namespace ProjectsApi
 {
     public class Program
@@ -8,7 +11,8 @@ namespace ProjectsApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseInMemoryDatabase("ProjectsDb"));
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
