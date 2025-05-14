@@ -1,4 +1,21 @@
 ﻿@page
 @model DeveloperPortfolio.Pages.PortfolioModel
-@{
-}
+
+<h2>My Projects</h2>
+
+<div class="row">
+    @foreach (var project in Model.Projects)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@project.Name</h5>
+                    <p class="card-text">@project.Description</p>
+                    <p><strong>Tech:</strong> @project.TechStack</p>
+                    <a href="@project.GitHubUrl" target="_blank" class="btn btn-outline-dark btn-sm">GitHub</a>
+                    <a href="@project.LiveDemoUrl" target="_blank" class="btn btn-outline-primary btn-sm">Live Demo</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
