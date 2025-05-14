@@ -16,7 +16,7 @@ namespace ProjectsApi.Data
                         Date = new DateTime(2025, 1, 15),
                         Description = "A simple banking system with account management and transactions.",
                         GitHubUrl = "https://github.com/LuxmiPalma/BankAB.git",
-                        LiveDemoUrl = "https://nextgenbank-h2a2hxhqa4a2gbgx.swedencentral-01.azurewebsites.net\r\n"
+                        LiveDemoUrl = "https://nextgenbank-h2a2hxhqa4a2gbgx.swedencentral-01.azurewebsites.net"
                     },
                     new Project
                     {
@@ -25,7 +25,7 @@ namespace ProjectsApi.Data
                         Date = new DateTime(2025, 3, 1),
                         Description = "An ad listing API similar to Blocket.se for managing ads.",
                         GitHubUrl = "https://github.com/LuxmiPalma/BlocketAdsApi.git",
-                        //LiveDemoUrl = "https://adapi.azurewebsites.net"
+                        LiveDemoUrl = "https://example.com"
                     }
                 );
 
