@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjectsApi.Data;
+using ProjectsApi.Models;
 
 namespace ProjectsApi.Controllers
 {
@@ -13,4 +14,19 @@ namespace ProjectsApi.Controllers
         {
             _context = context;
         }
+        [HttpGet]
+        public IActionResult GetProjects()
+        {
+            var projects = _context.Projects.ToList();
+            return Ok(projects);
+        }
+
+        [HttpPost]
+        public IActionResult AddProject(Project project)
+        {
+            _context.Projects.Add(project);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(GetProjects), new { id = project.Id }, project);
+        }
     }
+}
