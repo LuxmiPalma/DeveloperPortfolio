@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DeveloperPortfolio.styles.css" asp-append-version="true" />
+    <!-- Favicons -->
+    <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Vendor CSS -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS -->
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+
+    @RenderSection("Styles", required: false)
+
 </head>
 <body>
     <header>
@@ -49,6 +64,17 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="~/assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
