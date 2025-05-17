@@ -8,6 +8,14 @@ namespace ProjectsApi.Data
         {
             if (!context.Projects.Any())
             {
+
+                // Create icons first
+                var dotnet = new TechIcon { Technology = "ASP.NET Core", Url = "/icons/dotnet.png" };
+                var razor = new TechIcon { Technology = "Razor Pages", Url = "/icons/razor.png" };
+                var sql = new TechIcon { Technology = "SQL Server", Url = "/icons/sql.png" };
+                var ef = new TechIcon { Technology = "Entity Framework", Url = "/icons/ef.png" };
+                var api = new TechIcon { Technology = "Web API", Url = "/icons/api.png" };
+
                 context.Projects.AddRange(
                     new Project
                     {
