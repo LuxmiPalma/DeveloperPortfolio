@@ -1,41 +1,54 @@
 ﻿@page
 @model DeveloperPortfolio.Pages.PortfolioModel
-@{
-    ViewData["Title"] = "Portfolio";
-}
 
 <section id="portfolio" class="portfolio section">
-
-    <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
         <h2>Portfolio</h2>
-        <p>Some of the projects I've built using ASP.NET Core, Razor Pages, Web API, and SQL Server.</p>
+        <p>These are some of the projects I've built using .NET technologies.</p>
     </div>
 
-    <!-- Portfolio Grid -->
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4 portfolio-container">
+    <div class="container">
+        <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
             @foreach (var project in Model.Projects)
             {
                 <div class="col-lg-4 col-md-6 portfolio-item">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body d-flex flex-column">
+                    <div class="card h-100 shadow-sm">
+                        <img src="@project.ProjectImg" class="card-img-top" alt="@project.Name" />
+
+                        <div class="card-body">
                             <h5 class="card-title">@project.Name</h5>
-                            <p class="card-text small text-muted mb-2">@project.TechStack</p>
-                            <p class="card-text flex-grow-1">@project.Description</p>
-                            <div class="mt-3">
-                                <a href="@project.GitHubUrl" target="_blank" class="btn btn-sm btn-outline-dark me-2">
+                            <p class="card-text">@project.Description</p>
+
+                            <div class="mb-2">
+                                <strong>Technologies:</strong>
+                                <div class="d-flex flex-wrap mt-1">
+                                    @foreach (var tech in project.Technologies)
+                                    {
+                                        <img src="@tech.TechIcon.Url" title="@tech.TechIcon.Technology"
+                                             alt="@tech.TechIcon.Technology"
+                                             style="height: 24px; margin-right: 5px;" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer text-center">
+                            @if (!string.IsNullOrEmpty(project.GitHubUrl))
+                            {
+                                <a href="@project.GitHubUrl" target="_blank" class="btn btn-outline-dark btn-sm me-1">
                                     <i class="bi bi-github"></i> GitHub
                                 </a>
-                                <a href="@project.LiveDemoUrl" target="_blank" class="btn btn-sm btn-outline-primary">
-                                    <i class="bi bi-box-arrow-up-right"></i> Demo
+                            }
+                            @if (!string.IsNullOrEmpty(project.LiveDemoUrl))
+                            {
+                                <a href="@project.LiveDemoUrl" target="_blank" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-box-arrow-up-right"></i> Live Demo
                                 </a>
-                            </div>
+                            }
                         </div>
                     </div>
                 </div>
             }
         </div>
     </div>
-
 </section>
