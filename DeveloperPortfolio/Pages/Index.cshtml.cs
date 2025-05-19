@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using DeveloperPortfolio.Models.DTO;
+
 
 namespace DeveloperPortfolio.Pages
 {

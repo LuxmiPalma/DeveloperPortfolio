@@ -75,3 +75,13 @@
 
 </section><!-- /About Section -->
 
+<section id="portfolio" class="portfolio section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Portfolio</h2>
+        <p>These are some of the projects I've built using .NET technologies.</p>
+    </div>
+
+    @await Html.PartialAsync("_Portfolio", Model.Projects)
+</section>
+
+

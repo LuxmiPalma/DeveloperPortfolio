@@ -1,6 +1,6 @@
-﻿namespace DeveloperPortfolio.Models
+﻿namespace DeveloperPortfolio.Models.DTO
 {
-    public class TechIcon
+    public class TechIconDTO
     {
         public string Technology { get; set; } = null!;
         public string Url { get; set; } = null!;

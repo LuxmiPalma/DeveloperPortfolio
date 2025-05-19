@@ -1,4 +1,5 @@
-﻿namespace ProjectsApi.Models.DTO
+﻿
+namespace DeveloperPortfolio.Models.DTO
 {
     public class ProjectDTO
     {
@@ -10,6 +11,5 @@
         public string GitHubUrl { get; set; } = null!;
         public string LiveDemoUrl { get; set; } = null!;
         public List<TechIconDTO> Technologies { get; set; } = new();
-
     }
 }
