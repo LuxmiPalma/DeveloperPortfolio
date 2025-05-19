@@ -10,6 +10,7 @@ namespace DeveloperPortfolio
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddMemoryCache();
             builder.Services.AddHttpClient();
             builder.Services.AddScoped<IProjectService, ProjectService>();
 

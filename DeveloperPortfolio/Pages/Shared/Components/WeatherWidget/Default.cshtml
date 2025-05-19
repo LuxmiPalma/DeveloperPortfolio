@@ -1,0 +1,32 @@
+﻿@model DeveloperPortfolio.Models.WeatherViewModel
+
+
+<a href="https://www.klart.se/se/" target="_blank" class="nav-link weather-color">
+    @if (!string.IsNullOrWhiteSpace(Model.Description))
+    {
+        if (Model.Description.Contains("Sunny"))
+        {
+            <i class="fas fa-sun weather-icon"></i>
+        }
+        else if (Model.Description.Contains("Partly cloudy"))
+        {
+            <i class="fas fa-cloud-sun weather-icon"></i>
+        }
+        else if (Model.Description.Contains("Cloudy"))
+        {
+            <i class="fas fa-cloud weather-icon"></i>
+        }
+        else if (Model.Description.Contains("Rain"))
+        {
+            <i class="fas fa-cloud-showers-heavy weather-icon"></i>
+        }
+    }
+
+    @if (Model.WindKph > 25)
+    {
+        <i class="fas fa-wind weather-icon"></i>
+    }
+
+    @Model.City @Model.TempCelsius&#8451;
+</a>
+

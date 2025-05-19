@@ -22,12 +22,14 @@
     <link rel="stylesheet" href="~/DeveloperPortfolio.styles.css" asp-append-version="true" />
 </head>
 <body class="index-page">
+    
     <!-- Preloader -->
-    <div id="preloader"></div>
+    <div id="preloader" ></div>
 
     <header id="header" class="header d-flex flex-column justify-content-center">
         <i class="header-toggle d-xl-none bi bi-list"></i>
         <nav id="navmenu" class="navmenu">
+
             <ul>
                 <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
                 <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
@@ -80,5 +82,7 @@
     </script>
 
     @await RenderSectionAsync("Scripts", required: false)
+    @await Component.InvokeAsync("WeatherWidget")
+
 </body>
 </html>
