@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectsApi.Data;
 using ProjectsApi.Models;
+using ProjectsApi.Models.DTO;
 
 namespace ProjectsApi.Controllers
 {
@@ -15,13 +16,31 @@ namespace ProjectsApi.Controllers
         {
             _context = context;
         }
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Project>>> GetProjects()
+        [HttpGet("dto")]
+        public async Task<ActionResult<IEnumerable<ProjectDTO>>> GetProjectsDTO()
         {
-            return await _context.Projects
-        .Include(p => p.Technologies)
-        .ThenInclude(ts => ts.TechIcon)
-        .ToListAsync();
+            var projects = await _context.Projects
+                .Include(p => p.Technologies)
+                .ThenInclude(ts => ts.TechIcon)
+                .ToListAsync();
+
+            var projectDTOs = projects.Select(p => new ProjectDTO
+            {
+                ProjectImg = p.ProjectImg,
+                Name = p.Name,
+                TechStack = p.TechStack,
+                Date = p.Date,
+                Description = p.Description,
+                GitHubUrl = p.GitHubUrl,
+                LiveDemoUrl = p.LiveDemoUrl,
+                Technologies = p.Technologies.Select(t => new TechIconDTO
+                {
+                    Technology = t.TechIcon.Technology,
+                    Url = t.TechIcon.Url
+                }).ToList()
+            }).ToList();
+
+            return Ok(projectDTOs);
         }
 
         [HttpGet("{id}")]
@@ -44,7 +63,7 @@ namespace ProjectsApi.Controllers
             _context.Projects.Add(project);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetProjects), new { id = project.Id }, project);
+            return CreatedAtAction(nameof(GetProject), new { id = project.Id }, project);
         }
 
         // PUT: api/Projects/5
