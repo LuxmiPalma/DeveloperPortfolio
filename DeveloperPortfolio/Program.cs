@@ -1,3 +1,5 @@
+using DeveloperPortfolio.Services;
+
 namespace DeveloperPortfolio
 {
     public class Program
@@ -9,6 +11,8 @@ namespace DeveloperPortfolio
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddHttpClient();
+            builder.Services.AddScoped<IProjectService, ProjectService>();
+
 
 
             var app = builder.Build();
