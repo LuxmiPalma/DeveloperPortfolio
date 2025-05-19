@@ -11,7 +11,7 @@ namespace ProjectsApi.Data
                 var baseUrl = "https://localhost:7083";
 
                 // Create icons first
-                var dotnet = new TechIcon { Technology = "ASP.NET Core", Url = $"{baseUrl}/icons/Netcore.png" };
+                var dotnet = new TechIcon { Technology = "ASP.NET Core", Url = $"{baseUrl}/icons/ASP-core.jpg" };
                 var razor = new TechIcon { Technology = "Razor Pages", Url = $"{baseUrl}/icons/razor-icon.png" };
                 var sql = new TechIcon { Technology = "SQL Server", Url = $"{baseUrl}/icons/sql-server-icon.png" };
                 var ef = new TechIcon { Technology = "Entity Framework", Url = $"{baseUrl}/icons/icons8-.net-framework-48.png" };
