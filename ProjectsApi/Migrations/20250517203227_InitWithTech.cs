@@ -1,21 +1,34 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace ProjectsApi.Migrations
 {
     /// <inheritdoc />
-    public partial class AddProjectWithTechStack : Migration
+    public partial class InitWithTech : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "ProjectImg",
-                table: "Projects",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "");
+            migrationBuilder.CreateTable(
+                name: "Projects",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProjectImg = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TechStack = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GitHubUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LiveDemoUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Projects", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "TechIcons",
@@ -75,11 +88,10 @@ namespace ProjectsApi.Migrations
                 name: "TechStacks");
 
             migrationBuilder.DropTable(
-                name: "TechIcons");
+                name: "Projects");
 
-            migrationBuilder.DropColumn(
-                name: "ProjectImg",
-                table: "Projects");
+            migrationBuilder.DropTable(
+                name: "TechIcons");
         }
     }
 }

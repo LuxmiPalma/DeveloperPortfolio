@@ -13,7 +13,7 @@
             {
                 <div class="col-lg-4 col-md-6 portfolio-item">
                     <div class="card h-100 shadow-sm">
-                        <img src="@project.ProjectImg" class="card-img-top" alt="@project.Name" />
+                        <img src="@Url.Content(project.ProjectImg)" class="card-img-top" alt="@project.Name" />
 
                         <div class="card-body">
                             <h5 class="card-title">@project.Name</h5>
@@ -24,9 +24,11 @@
                                 <div class="d-flex flex-wrap mt-1">
                                     @foreach (var tech in project.Technologies)
                                     {
-                                        <img src="@tech.TechIcon.Url" title="@tech.TechIcon.Technology"
+                                        <img src="@Url.Content(tech.TechIcon.Url)" title="@tech.TechIcon.Technology"
                                              alt="@tech.TechIcon.Technology"
                                              style="height: 24px; margin-right: 5px;" />
+
+
                                     }
                                 </div>
                             </div>

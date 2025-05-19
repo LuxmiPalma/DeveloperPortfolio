@@ -8,18 +8,18 @@ namespace ProjectsApi.Data
         {
             if (!context.Projects.Any())
             {
+                var baseUrl = "https://localhost:7083";
 
                 // Create icons first
-                var dotnet = new TechIcon { Technology = "ASP.NET Core", Url = "/icons/dotnet.png" };
-                var razor = new TechIcon { Technology = "Razor Pages", Url = "/icons/razor.png" };
-                var sql = new TechIcon { Technology = "SQL Server", Url = "/icons/sql.png" };
-                var ef = new TechIcon { Technology = "Entity Framework", Url = "/icons/ef.png" };
-                var api = new TechIcon { Technology = "Web API", Url = "/icons/api.png" };
+                var dotnet = new TechIcon { Technology = "ASP.NET Core", Url = $"{baseUrl}/icons/Netcore.png" };
+                var razor = new TechIcon { Technology = "Razor Pages", Url = $"{baseUrl}/icons/razor-icon.png" };
+                var sql = new TechIcon { Technology = "SQL Server", Url = $"{baseUrl}/icons/sql-server-icon.png" };
+                var ef = new TechIcon { Technology = "Entity Framework", Url = $"{baseUrl}/icons/icons8-.net-framework-48.png" };
+                var api = new TechIcon { Technology = "Web API", Url = $"{baseUrl}/icons/web-api-icon.png" };
 
                 var bankProject = new Project
                 {
-                    ProjectImg = "/img/bankapp.jpg",
-                    Name = "BankApp",
+                    ProjectImg = $"{baseUrl}/images/img-Bank.png",                    Name = "BankApp",
                     TechStack = "ASP.NET Core, Razor Pages, SQL Server",
                     Date = new DateTime(2025, 1, 15),
                     Description = "A simple banking system with account management and transactions.",
@@ -35,7 +35,7 @@ namespace ProjectsApi.Data
 
                 var adsProject = new Project
                 {
-                    ProjectImg = "/img/adapi.jpg",
+                    ProjectImg = $"{baseUrl}/images/img-api.png",
                     Name = "Ad API",
                     TechStack = "ASP.NET Core Web API, Entity Framework, SQL Server",
                     Date = new DateTime(2025, 3, 1),

@@ -12,8 +12,8 @@ using ProjectsApi.Data;
 namespace ProjectsApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250517181605_AddProjectWithTechStack")]
-    partial class AddProjectWithTechStack
+    [Migration("20250517203227_InitWithTech")]
+    partial class InitWithTech
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
