@@ -1,0 +1,21 @@
+﻿@model DeveloperPortfolio.Models.ContactForm
+
+<form method="post">
+    <input asp-for="Name" placeholder="Your name" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+
+    <input asp-for="Email" placeholder="Your email" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+
+    <input asp-for="Subject" placeholder="Subject" />
+    <span asp-validation-for="Subject" class="text-danger"></span>
+
+    <textarea asp-for="Message" placeholder="Your message"></textarea>
+    <span asp-validation-for="Message" class="text-danger"></span>
+
+    <button type="submit">Send</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

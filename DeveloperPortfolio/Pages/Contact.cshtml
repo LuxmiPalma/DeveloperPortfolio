@@ -1,0 +1,36 @@
+﻿@page
+@model DeveloperPortfolio.Pages.ContactModel
+@{
+    ViewData["Title"] = "Contact Me";
+}
+
+<h2>Contact Me</h2>
+
+<form method="post">
+    <div>
+        <input asp-for="Form.Name" placeholder="Your name" />
+        <span asp-validation-for="Form.Name" class="text-danger"></span>
+    </div>
+    <div>
+        <input asp-for="Form.Email" placeholder="Your email" />
+        <span asp-validation-for="Form.Email" class="text-danger"></span>
+    </div>
+    <div>
+        <input asp-for="Form.Subject" placeholder="Subject" />
+        <span asp-validation-for="Form.Subject" class="text-danger"></span>
+    </div>
+    <div>
+        <textarea asp-for="Form.Message" placeholder="Your message"></textarea>
+        <span asp-validation-for="Form.Message" class="text-danger"></span>
+    </div>
+    <button type="submit">Send ➜</button>
+</form>
+
+@if (Model.SuccessMessage != null)
+{
+    <div class="alert alert-success">@Model.SuccessMessage</div>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

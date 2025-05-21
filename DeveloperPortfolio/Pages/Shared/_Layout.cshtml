@@ -20,8 +20,15 @@
     <!-- Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="~/DeveloperPortfolio.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
 </head>
 <body class="index-page">
+    <div style="position: fixed; top: 20px; left: 80px; z-index: 9999; color: #b8860b; font-weight: 600; font-size: 1.1rem;">
+        @await Component.InvokeAsync("WeatherWidget")
+
+    </div>
+
     
     <!-- Preloader -->
     <div id="preloader" ></div>
@@ -29,15 +36,14 @@
 
     <header id="header" class="header d-flex flex-column justify-content-center">
         <i class="header-toggle d-xl-none bi bi-list"></i>
-        @await Component.InvokeAsync("WeatherWidget")
 
         <nav id="navmenu" class="navmenu">
 
             <ul>
                 <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
                 <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
-                <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
                 <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
+                <li><a href="#testimonials"><i class="bi bi-chat-dots"></i><span>Testimonials</span></a></li>
                 <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
             </ul>
         </nav>
@@ -57,6 +63,10 @@
             </div>
             <div class="copyright">
                 &copy; 2025 - <strong class="px-1 sitename">DeveloperPortfolio</strong> - <a asp-area="" asp-page="/Privacy">Privacy</a>
+                <p>
+                    <a href="mailto:luxmi.palma@gmail.com">luxmipalma@gmail.com</a>
+                </p>
+
             </div>
         </div>
     </footer>

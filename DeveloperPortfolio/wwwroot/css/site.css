@@ -20,3 +20,14 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+#navmenu a {
+    background-color: #78b7d1 !important;
+    color: white !important;
+}
+
+    #navmenu a:hover,
+    #navmenu a.active {
+        background-color: #5aa6c6 !important; /* optional: slightly darker */
+        color: white !important;
+    }
