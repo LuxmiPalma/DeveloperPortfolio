@@ -47,7 +47,7 @@ namespace DeveloperPortfolio.Pages
             try
             {
                 var mailMessage = new MailMessage();
-                mailMessage.To.Add("your-real-email@gmail.com"); // ? Your email
+                mailMessage.To.Add("luxmi.palma@gmail.com"); // ? Your email
                 mailMessage.From = new MailAddress(ContactForm.Email); // ?? Visitor's email
                 mailMessage.Subject = ContactForm.Subject;
                 mailMessage.Body = $"Name: {ContactForm.Name}\nEmail: {ContactForm.Email}\nMessage: {ContactForm.Message}";
@@ -57,15 +57,15 @@ namespace DeveloperPortfolio.Pages
                     smtpClient.EnableSsl = true;
                     smtpClient.UseDefaultCredentials = false;
                     smtpClient.Credentials = new NetworkCredential(
-                        Environment.GetEnvironmentVariable("EMAIL_USERNAME"),
-                        Environment.GetEnvironmentVariable("EMAIL_PASSWORD")
+                        ("luxmi.palma@gmail.com"),
+                        ("hfmv jpyx gehz jmqd")
                     );
                     smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
 
                     await smtpClient.SendMailAsync(mailMessage);
                 }
 
-                TempData["ShowToast"] = true; // ? for success toast
+                ContactSuccessMessage = "Thank you! Your message has been sent.";
             }
             catch (Exception ex)
             {
@@ -74,7 +74,7 @@ namespace DeveloperPortfolio.Pages
                 _logger.LogError(ex, "Error sending email.");
             }
 
-            return RedirectToPage("/Index"); // Reload page to show toast
+            return Page();
         }
     }
 }

@@ -31,3 +31,7 @@ body {
         background-color: #5aa6c6 !important; /* optional: slightly darker */
         color: white !important;
     }
+
+.bg-dark {
+    background-color: #0d1b2a !important; /* Deep blue */
+}

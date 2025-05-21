@@ -7,6 +7,7 @@
 <h2>Contact Me</h2>
 
 <form method="post">
+
     <div>
         <input asp-for="Form.Name" placeholder="Your name" />
         <span asp-validation-for="Form.Name" class="text-danger"></span>
@@ -24,12 +25,16 @@
         <span asp-validation-for="Form.Message" class="text-danger"></span>
     </div>
     <button type="submit">Send ➜</button>
+
 </form>
 
-@if (Model.SuccessMessage != null)
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
 {
-    <div class="alert alert-success">@Model.SuccessMessage</div>
+    <div class="alert alert-success mt-3">
+        ✅ @Model.SuccessMessage
+    </div>
 }
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

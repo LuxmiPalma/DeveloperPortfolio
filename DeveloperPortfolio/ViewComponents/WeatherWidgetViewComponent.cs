@@ -40,7 +40,7 @@ namespace DeveloperPortfolio.ViewComponents
 
                     weather.City = parsed.location.name;
                     weather.TempCelsius = parsed.current.temp_c;
-                    weather.Description = parsed.current.condition.text;
+                    weather.Description = parsed.current?.condition?.text ?? "No description available";
                     weather.IconUrl = parsed.current.condition.icon;
                     weather.WindKph = parsed.current.wind_kph;
                     weather.RainMm = parsed.current.precip_mm;
