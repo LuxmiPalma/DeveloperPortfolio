@@ -131,3 +131,18 @@ input.form-control::placeholder {
         background-color: #c29b20; /* slightly darker on hover */
         color: white;
     }
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    padding: 0;
+    text-decoration: none;
+}
+    .social-icon:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+    }
