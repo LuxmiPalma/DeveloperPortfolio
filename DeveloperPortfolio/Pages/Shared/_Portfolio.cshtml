@@ -1,6 +1,6 @@
 ﻿@model List<DeveloperPortfolio.Models.DTO.ProjectDTO>
 
-<div class="container">
+<div class="container bg-light ">
     <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
         @foreach (var project in Model)
@@ -9,11 +9,11 @@
                 <div class="card h-100 shadow-sm">
                     <img src="@project.ProjectImg" class="card-img-top" />
 
-                    <div class="card-body">
-                        <h5 class="card-title">@project.Name</h5>
+                    <div class="card-body container shadow p-5 rounded" style="background-color: #fef9f5;">
+                        <h5 class="card-title btn btn-warning mb-3 rounded-pill px-4 py-2 fw-bold">@project.Name</h5>
                         <p class="card-text">@project.Description</p>
 
-                        <div class="mb-2">
+                        <div class="mb-2 btn btn-outline-warning mb-3 rounded-pill px-4 py-2 fw-bold">
                             <strong>Technologies:</strong>
                             <div class="d-flex flex-wrap mt-1">
                                 @foreach (var tech in project.Technologies)
@@ -21,7 +21,7 @@
                                     <img src="@tech.Url" title="@tech.Technology"
                                          alt="@tech.Technology"
                                          class="tech-icon"
-                                         style="height: 24px; margin-right: 5px;" />
+                                         style="height: 45px; margin-right: 5px;" />
 
 
 
@@ -34,13 +34,13 @@
                     <div class="card-footer text-center">
                         @if (!string.IsNullOrEmpty(project.GitHubUrl))
                         {
-                            <a href="@project.GitHubUrl" target="_blank" class="btn btn-outline-dark btn-sm me-1">
+                            <a href="@project.GitHubUrl" target="_blank" class="text black btn btn-outline-warning mb-3 rounded-pill px-4 py-2 fw-bold">
                                 <i class="bi bi-github"></i> GitHub
                             </a>
                         }
                         @if (!string.IsNullOrEmpty(project.LiveDemoUrl))
                         {
-                            <a href="@project.LiveDemoUrl" target="_blank" class="btn btn-outline-primary btn-sm">
+                            <a href="@project.LiveDemoUrl" target="_blank" class="text black btn btn-outline-warning mb-3 rounded-pill px-4 py-2 fw-bold">
                                 <i class="bi bi-box-arrow-up-right"></i> Live Demo
                             </a>
                         }

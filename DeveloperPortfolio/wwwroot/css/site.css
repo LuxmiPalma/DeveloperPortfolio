@@ -22,19 +22,17 @@ body {
 }
 
 #navmenu a {
-    background-color: #78b7d1 !important;
+    background-color: #05878a !important;
     color: white !important;
 }
 
     #navmenu a:hover,
     #navmenu a.active {
-        background-color: #5aa6c6 !important; /* optional: slightly darker */
+        background-color: #d3a625 !important; /* optional: slightly darker */
         color: white !important;
     }
 
-.bg-dark {
-    background-color: #0d1b2a !important; /* Deep blue */
-}
+
 .about-header {
     font-size: 2rem;
     font-weight: bold;
@@ -86,3 +84,25 @@ input.form-control::placeholder {
     .portfolio-item .card:hover {
         box-shadow: 0 10px 25px rgba(226, 135, 67, 0.4); /* warm shadow */
     }
+.btn-custom {
+    background-color: transparent;
+    border: 2px solid #d3a625;
+    color: #d3a625;
+    transition: all 0.3s ease;
+}
+
+    .btn-custom:hover,
+    .btn-custom:focus {
+        background-color: #d3a625; /* teal */
+        color: #ffffff;
+        border-color: #d3a625;
+        text-decoration: none;
+    }
+.custom {
+    color: #d3a625;
+}
+
+.bg-foam {
+    color: #a0d6b4;
+}
+
