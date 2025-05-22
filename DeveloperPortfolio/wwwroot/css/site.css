@@ -106,3 +106,28 @@ input.form-control::placeholder {
     color: #a0d6b4;
 }
 
+.btn-outline-teal {
+    color: #008080;
+    border: 2px solid #008080;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+    .btn-outline-teal:hover,
+    .btn-outline-teal:focus {
+        background-color: #008080;
+        color: white;
+        border-color: #008080;
+        text-decoration: none;
+    }
+.btn-gold-fill {
+    background-color: #d3a625;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+    .btn-gold-fill:hover {
+        background-color: #c29b20; /* slightly darker on hover */
+        color: white;
+    }

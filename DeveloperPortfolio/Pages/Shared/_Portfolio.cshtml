@@ -10,10 +10,10 @@
                     <img src="@project.ProjectImg" class="card-img-top" />
 
                     <div class="card-body container shadow p-5 rounded" style="background-color: #fef9f5;">
-                        <h5 class="card-title btn btn-warning mb-3 rounded-pill px-4 py-2 fw-bold">@project.Name</h5>
-                        <p class="card-text">@project.Description</p>
+                        <h5 class="card-title btn btn-gold-fill mb-3 rounded-pill px-4 py-2 fw-bold">@project.Name</h5>
+                        <p class="card-text ">@project.Description</p>
 
-                        <div class="mb-2 btn btn-outline-warning mb-3 rounded-pill px-4 py-2 fw-bold">
+                        <div class="mb-2 btn btn-custom mb-3 rounded-pill px-4 py-2 fw-bold">
                             <strong>Technologies:</strong>
                             <div class="d-flex flex-wrap mt-1">
                                 @foreach (var tech in project.Technologies)
@@ -34,13 +34,15 @@
                     <div class="card-footer text-center">
                         @if (!string.IsNullOrEmpty(project.GitHubUrl))
                         {
-                            <a href="@project.GitHubUrl" target="_blank" class="text black btn btn-outline-warning mb-3 rounded-pill px-4 py-2 fw-bold">
+                            <a href="@project.GitHubUrl" target="_blank"
+                               class="btn btn-outline-teal mb-3 rounded-pill px-4 py-2 fw-bold">
                                 <i class="bi bi-github"></i> GitHub
                             </a>
                         }
                         @if (!string.IsNullOrEmpty(project.LiveDemoUrl))
                         {
-                            <a href="@project.LiveDemoUrl" target="_blank" class="text black btn btn-outline-warning mb-3 rounded-pill px-4 py-2 fw-bold">
+                            <a href="@project.LiveDemoUrl" target="_blank"
+                               class="btn btn-outline-teal mb-3 rounded-pill px-4 py-2 fw-bold">
                                 <i class="bi bi-box-arrow-up-right"></i> Live Demo
                             </a>
                         }
