@@ -41,12 +41,12 @@
 </section>
 
 
-<section id="portfolio" class="portfolio section" style="background-color: #969797;">
+<section id="portfolio" class="portfolio section" "container shadow p-5 rounded" style="background-color: #f0f8ff;" ">
     <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
+        <div class="card shadow">
+            <h2 class="card-header bg-teal text-white text-center py-3 ">Portfolio</h2>
         <p>These are some of the projects I've built using .NET technologies.</p>
     </div>
-
     @await Html.PartialAsync("_Portfolio", Model.Projects)
 </section>
 
@@ -182,7 +182,7 @@
                         <span asp-validation-for="ContactForm.Message" class="text-danger"></span>
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-warning rounded-pill px-4 py-2 fw-semibold">Submit Now</button>
+                        <button type="submit" class="btn btn-warning rounded-pill px-4 py-2 fw-semibold">Send Email</button>
                     </div>
                 </form>
             </div>

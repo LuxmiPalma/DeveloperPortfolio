@@ -21,6 +21,8 @@
     <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
 
     <!-- Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet">
@@ -29,10 +31,12 @@
 
 </head>
 <body class="index-page">
-    <div style="position: fixed; top: 20px; left: 80px; z-index: 9999; color: #b8860b; font-weight: 600; font-size: 1.1rem;">
+    <div class="text-info"
+         style="position: fixed; top: 20px; left: 20px; z-index: 9999; font-weight: 600; font-size: 1.5rem;">
         @await Component.InvokeAsync("WeatherWidget")
-
     </div>
+
+
 
     
     <!-- Preloader -->
@@ -45,6 +49,11 @@
         <nav id="navmenu" class="navmenu">
 
             <ul>
+               
+
+               
+
+
                 <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
                 <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
                 <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
@@ -106,6 +115,14 @@
     <!-- Razor validation scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@4.0.0/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+                new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
 
 
     @await RenderSectionAsync("Scripts", required: false)
