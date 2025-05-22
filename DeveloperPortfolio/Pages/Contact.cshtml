@@ -28,14 +28,36 @@
 
 </form>
 
-@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+@if (TempData["ContactSuccess"] != null)
 {
-    <div class="alert alert-success mt-3">
-        ✅ @Model.SuccessMessage
+    <div id="contact-success" class="alert alert-success fade show text-center mt-3">
+        <i class="bi bi-check-circle me-2"></i>@TempData["ContactSuccess"]
     </div>
 }
 
 
+
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const successBox = document.getElementById('contact-success');
+            if (successBox) {
+                setTimeout(() => {
+                    successBox.classList.add('fade');
+                    successBox.classList.add('show');
+
+                    // Start fading
+                    successBox.style.transition = 'opacity 1s ease';
+                    successBox.style.opacity = '0';
+
+                    // Remove from DOM after fade
+                    setTimeout(() => {
+                        successBox.remove();
+                    }, 1000);
+                }, 4000); // Wait 4 seconds before fading out
+            }
+        });
+    </script>
 }

@@ -28,12 +28,16 @@ namespace DeveloperPortfolio.Pages
 
         [BindProperty]
         public ContactForm ContactForm { get; set; } = new();
-        [BindProperty(SupportsGet = false)]
+        [TempData]
         public string? ContactSuccessMessage { get; set; }
 
-
+      
         public async Task OnGetAsync()
         {
+            if (!string.IsNullOrEmpty(ContactSuccessMessage))
+            {
+                ContactForm = new ContactForm();
+            }
             Projects = await _projectService.GetProjectsAsync();
         }
 
@@ -47,8 +51,8 @@ namespace DeveloperPortfolio.Pages
             try
             {
                 var mailMessage = new MailMessage();
-                mailMessage.To.Add("luxmi.palma@gmail.com"); // ? Your email
-                mailMessage.From = new MailAddress(ContactForm.Email); // ?? Visitor's email
+                mailMessage.To.Add("luxmi.palma@gmail.com"); 
+                mailMessage.From = new MailAddress(ContactForm.Email); 
                 mailMessage.Subject = ContactForm.Subject;
                 mailMessage.Body = $"Name: {ContactForm.Name}\nEmail: {ContactForm.Email}\nMessage: {ContactForm.Message}";
 
@@ -66,6 +70,7 @@ namespace DeveloperPortfolio.Pages
                 }
 
                 ContactSuccessMessage = "Thank you! Your message has been sent.";
+                return RedirectToPage();
             }
             catch (Exception ex)
             {

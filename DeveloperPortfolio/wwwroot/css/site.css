@@ -35,3 +35,34 @@ body {
 .bg-dark {
     background-color: #0d1b2a !important; /* Deep blue */
 }
+.about-header {
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: #008080;
+}
+
+.about-me-card {
+    transition: all 0.3s ease-in-out;
+}
+
+    .about-me-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+.bg-teal {
+    background-color: #008080 !important;
+}
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+textarea.form-control::placeholder,
+input.form-control::placeholder {
+    color: #a89c87;
+    font-size: 0.95rem;
+}
+
+

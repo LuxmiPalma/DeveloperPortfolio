@@ -6,23 +6,26 @@
 
 
 <!-- Hero Section -->
-<section id="hero" class="hero section light-background">
+<section  id="hero" class="hero section ">
 
     <img src="~/images/me-2.jpg" alt="">
 
     <div class="container" data-aos="zoom-out">
         <div class="row justify-content-center">
             <div class="col-lg-9">
-                <h2>Luxmi Agnes Palma</h2>
+                <h2>Luxmi <span class="text-warning">Agnes</span> Palma</h2>
                 <p>I'm <span class="typed" data-typed-items=",.NET Developer,"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/luxmi-agnes-palma-784a12243/" target="_blank"><i class="bi bi-linkedin"></i></a>
-                </div>
-                <div class="mt-3">
-                    <a class="btn btn-primary" href="~/files/Luxmi-CV.docx" download>
+
+                <div class="mt-3 d-flex flex-wrap" style="gap: 1rem;">
+                    <a class="btn text-black btn btn-warning rounded-pill px-4 py-2 fw-semibold" href="~/files/Luxmi-CV.docx" download>
                         <i class="bi bi-download me-1"></i> Download CV
                     </a>
+                    <a class="btn text-black btn btn-warning rounded-pill px-4 py-2 fw-semibold" href="#contact">
+                        <i class="bi bi-envelope me-1"></i> Contact Me
+                    </a>
                 </div>
+
+
 
             </div>
             
@@ -32,39 +35,10 @@
 
 </section><!-- /Hero Section -->
 <!-- About Section -->
-<!-- About Section -->
-<section id="about" class="about section text-white" style="background-color: #0d1b2a;">
-    <div class="container-fluid py-5">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2 class="text-white">About</h2>
-            <p class="text-light">
-                Learn a bit about me — my journey, my passion, and what drives me as a .NET developer.
-            </p>
-        </div><!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-            <div class="row gy-4 justify-content-center align-items-center">
-                <!-- Image Column -->
-                <div class="col-lg-4 text-center">
-                    <img src="~/images/me-1.jpg" class="img-fluid rounded shadow" alt="My Photo">
-                </div>
-
-                <!-- Text Column -->
-                <div class="col-lg-8 content">
-                    <h2 class="text-white">Who I Am</h2>
-                    <ul class="list-unstyled fs-5 pt-3">
-                        <li><i class="bi bi-arrow-right-circle-fill me-2"></i> A dedicated .NET system development student based in Stockholm.</li>
-                        <li><i class="bi bi-arrow-right-circle-fill me-2"></i> Passionate about building full-stack web apps using C#, ASP.NET Core, Razor Pages, and SQL Server.</li>
-                        <li><i class="bi bi-arrow-right-circle-fill me-2"></i> Enjoy solving real-world problems through clean, maintainable code.</li>
-                        <li><i class="bi bi-arrow-right-circle-fill me-2"></i> Always learning — aiming to become a skilled full-stack developer.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section><!-- /About Section -->
-
+<section id="about" style="background-color: #f0f8ff;"
+    >
+    @await Html.PartialAsync("_About")
+</section>
 
 
 <section id="portfolio" class="portfolio section" style="background-color: #969797;">
@@ -75,6 +49,8 @@
 
     @await Html.PartialAsync("_Portfolio", Model.Projects)
 </section>
+
+
 <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section">
 
@@ -167,82 +143,72 @@
 
 
 <!-- /contact Section -->
-<!-- /contact Section -->
-<section id="contact" class="contact section">
-    <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Feel free to reach out using the form below.</p>
-    </div>
+<section id="contact" class="contact section bg-light py-5" style="font-family: 'Poppins', sans-serif;">
+    <div class="container shadow p-5 rounded" style="background-color: #fef9f5;">
+        <div class="text-start mb-4">
+            <button class="btn btn-outline-warning mb-3 rounded-pill px-4 py-2 fw-bold">GET IN TOUCH</button>
+            <h2 class="mb-3" style="font-family: 'Dancing Script', cursive; font-size: 2.5rem;">Contact With Me Any Queries!</h2>
+            <p class="text-muted">Feel free to use the form below. I’ll get back to you as soon as possible!</p>
+        </div>
 
-    <div class="container" data-aos="fade" data-aos-delay="100">
-        @if (!string.IsNullOrEmpty(Model.ContactSuccessMessage))
+        @if (!string.IsNullOrEmpty(TempData["ContactSuccessMessage"] as string))
         {
             <div class="alert alert-success text-center mt-3">
-                <i class="bi bi-check-circle me-2"></i>@Model.ContactSuccessMessage
+                <i class="bi bi-check-circle me-2"></i>@TempData["ContactSuccessMessage"]
             </div>
         }
 
-        <div class="row gy-4">
-            <!-- Contact Info Column -->
-            <div class="col-lg-4">
-                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                    <i class="bi bi-geo-alt flex-shrink-0"></i>
-                    <div>
-                        <h3>Address</h3>
-                        <p>Vallhornsvägen 1,Skogås, Stockholm</p>
-                    </div>
-                </div>
 
-                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                    <i class="bi bi-telephone flex-shrink-0"></i>
-                    <div>
-                        <h3>Call me</h3>
-                        <p>0766527901</p>
-                    </div>
-                </div>
-
-                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                    <i class="bi bi-envelope flex-shrink-0"></i>
-                    <div>
-                        <h3>Email me</h3>
-                        <p>luxmi.palma@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Form Column -->
-            <div class="col-lg-8">
-                <form method="post" asp-page-handler="Contact" novalidate class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-                    <div class="row gy-4">
-                        <div class="col-md-6">
-                            <input asp-for="ContactForm.Name" class="form-control" placeholder="Your Name" />
+        <div class="row">
+            <!-- Contact Form -->
+            <div class="col-lg-8 mb-4">
+                <form method="post" asp-page-handler="Contact" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <input asp-for="ContactForm.Name" class="form-control border border-warning-subtle rounded-pill py-2 px-3" placeholder="Your Name" />
                             <span asp-validation-for="ContactForm.Name" class="text-danger"></span>
                         </div>
-
-                        <div class="col-md-6">
-                            <input asp-for="ContactForm.Email" class="form-control" placeholder="Your Email" />
+                        <div class="col-md-6 mb-3">
+                            <input asp-for="ContactForm.Email" class="form-control border border-warning-subtle rounded-pill py-2 px-3" placeholder="Enter Your Email" />
                             <span asp-validation-for="ContactForm.Email" class="text-danger"></span>
                         </div>
-
-                        <div class="col-md-12">
-                            <input asp-for="ContactForm.Subject" class="form-control" placeholder="Subject" />
-                            <span asp-validation-for="ContactForm.Subject" class="text-danger"></span>
-                        </div>
-
-                        <div class="col-md-12">
-                            <textarea asp-for="ContactForm.Message" class="form-control" rows="6" placeholder="Message"></textarea>
-                            <span asp-validation-for="ContactForm.Message" class="text-danger"></span>
-                        </div>
-
-                        <div class="col-md-12 text-center">
-                            <button type="submit">Send Message</button>
-                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <input asp-for="ContactForm.Subject" class="form-control border border-warning-subtle rounded-pill py-2 px-3" placeholder="Subject" />
+                        <span asp-validation-for="ContactForm.Subject" class="text-danger"></span>
+                    </div>
+                    <div class="mb-4">
+                        <textarea asp-for="ContactForm.Message" rows="5" class="form-control border border-warning-subtle rounded-4 px-3 py-2" placeholder="Your Message"></textarea>
+                        <span asp-validation-for="ContactForm.Message" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-warning rounded-pill px-4 py-2 fw-semibold">Submit Now</button>
                     </div>
                 </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-lg-4">
+                <div class="border rounded-3 p-3 mb-3">
+                    <i class="bi bi-geo-alt text-warning fs-4 me-2"></i>
+                    <strong class="d-block">Address</strong>
+                    <p class="mb-0 text-muted">Vallhornsvägen 1, Skogås, Stockholm</p>
+                </div>
+                <div class="border rounded-3 p-3 mb-3">
+                    <i class="bi bi-envelope text-warning fs-4 me-2"></i>
+                    <strong class="d-block">Mail Me</strong>
+                    <p class="mb-0 text-muted">luxmi.palma@gmail.com</p>
+                </div>
+                <div class="border rounded-3 p-3 mb-3">
+                    <i class="bi bi-telephone text-warning fs-4 me-2"></i>
+                    <strong class="d-block">Telephone</strong>
+                    <p class="mb-0 text-muted">0766527901</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
@@ -258,6 +224,12 @@
             $('.toast').on('hidden.bs.toast', function () {
                 $('#toast-overlay').hide();
             });
+        });
+    </script>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
         });
     </script>
 }

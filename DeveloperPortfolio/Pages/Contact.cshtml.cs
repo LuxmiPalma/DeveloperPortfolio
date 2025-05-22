@@ -1,4 +1,4 @@
-using DeveloperPortfolio.Models;
+﻿using DeveloperPortfolio.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Mail;
@@ -11,9 +11,16 @@ namespace DeveloperPortfolio.Pages
         [BindProperty]
         public ContactForm Form { get; set; } = new();
 
-        public string? SuccessMessage { get; set; }
+        [TempData]
+        public string? ContactSuccess { get; set; }
 
-        public void OnGet() { }
+        public void OnGet()
+        {
+            if (!string.IsNullOrEmpty(ContactSuccess))
+            {
+                Form = new ContactForm(); 
+            }
+        }
 
         public IActionResult OnPost()
         {
@@ -38,16 +45,17 @@ namespace DeveloperPortfolio.Pages
                     smtp.Send(message);
                 }
 
-                SuccessMessage = "Thank you! Your message has been sent.";
-                ModelState.Clear();
-                Form = new ContactForm();
+                ContactSuccess = "Thank you! Your message has been sent.";
+                return RedirectToPage();
+
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                ModelState.AddModelError(string.Empty, "? Failed to send message. Please try again later.");
+                ModelState.AddModelError(string.Empty, " Failed to send message. Please try again later.");
+                return Page();
             }
 
-            return Page();
+           
         }
     }
 }
