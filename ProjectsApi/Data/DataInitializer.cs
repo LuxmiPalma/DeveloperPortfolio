@@ -20,8 +20,9 @@ namespace ProjectsApi.Data
                 var react = new TechIcon { Technology = "React", Url = $"{baseUrl}/icons/React.png" };
                 var vite = new TechIcon { Technology = "Vite", Url = $"{baseUrl}/icons/Vite.png" };
                 var html = new TechIcon { Technology = "HTML", Url = $"{baseUrl}/icons/Html.png" };
+                var csharp = new TechIcon { Technology = "C#", Url = $"{baseUrl}/icons/C-sharp.png" };
 
-                context.TechIcons.AddRange(dotnet, razor, sql, ef, api, java, react, vite, html);
+            context.TechIcons.AddRange(dotnet, razor, sql, ef, api, java, react, vite, html);
                 context.SaveChanges();
 
                 var bankProject = new Project
@@ -37,7 +38,8 @@ namespace ProjectsApi.Data
                     {
                         new TechStack { TechIcon = dotnet },
                         new TechStack { TechIcon = razor },
-                        new TechStack { TechIcon = sql }
+                        new TechStack { TechIcon = sql },
+                        new TechStack { TechIcon = ef },
                     }
                 };
 
@@ -57,15 +59,16 @@ namespace ProjectsApi.Data
                         new TechStack { TechIcon = ef },
                         new TechStack { TechIcon = sql },
                         new TechStack { TechIcon = api }
+
                     }
                 };
                 var siliconProject = new Project
                 {
-                    ProjectImg = $"{baseUrl}/images/app-html.png",
+                    ProjectImg = $"{baseUrl}/images/Silicon.png",
                     Name = "Silicon",
                     TechStack = "Java, React, Vite, HTML",
                     Date = new DateTime(2025, 2, 15),
-                    Description = "A full-stack web project built using Java for the backend and React with Vite and HTML for the frontend. Features include dynamic UI components and real-time interactions.",
+                    Description = "A responsive front-end project built using HTML, CSS, React, Vite, and JavaScript. ",
                     GitHubUrl = "https://github.com/LuxmiPalma/Silicon-Vite.git",
                     LiveDemoUrl = "https://example-silicon.com", 
                     Technologies = new List<TechStack>
@@ -91,7 +94,8 @@ namespace ProjectsApi.Data
                     Technologies = new List<TechStack>
                     {
                         new TechStack { TechIcon = dotnet },
-                        new TechStack { TechIcon = sql }
+                        new TechStack { TechIcon = sql },
+                        new TechStack { TechIcon = csharp }
 
 
 
@@ -112,7 +116,8 @@ namespace ProjectsApi.Data
                     Technologies = new List<TechStack>
                     {
                         new TechStack { TechIcon = dotnet },
-                        new TechStack { TechIcon = sql }
+                        new TechStack { TechIcon = sql },
+                        new TechStack { TechIcon = csharp },
 
                      }
                 };
@@ -129,6 +134,9 @@ namespace ProjectsApi.Data
                     Technologies = new List<TechStack>
                     {
                         new TechStack { TechIcon = dotnet },
+                        new TechStack { TechIcon = csharp },
+                        
+
                     }
                 };
 
@@ -145,14 +153,17 @@ namespace ProjectsApi.Data
                     Technologies = new List<TechStack>
                     { 
                     new TechStack { TechIcon = dotnet },
-                    new TechStack { TechIcon = sql }}
+                    new TechStack { TechIcon = sql },
+                    new TechStack { TechIcon = csharp },
+},
+                    
                 
             
 
                 };
 
 
-                context.Projects.AddRange(bankProject, adsProject,CashRegisterProject,bookingConsoleProject,ticTacToeProject,mathUtilityProject,siliconProject);
+                context.Projects.AddRange(bankProject, adsProject, siliconProject,CashRegisterProject, bookingConsoleProject,ticTacToeProject,mathUtilityProject);
                 context.SaveChanges();
             }
         

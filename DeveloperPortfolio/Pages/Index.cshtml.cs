@@ -70,7 +70,7 @@ namespace DeveloperPortfolio.Pages
                 }
 
                 ContactSuccessMessage = "Thank you! Your message has been sent.";
-                return RedirectToPage();
+                return Redirect("/#contact");
             }
             catch (Exception ex)
             {
