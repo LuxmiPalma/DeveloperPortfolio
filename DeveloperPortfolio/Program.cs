@@ -11,8 +11,14 @@ namespace DeveloperPortfolio
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddMemoryCache();
-            builder.Services.AddHttpClient();
-            builder.Services.AddScoped<IProjectService, ProjectService>();
+
+            var apiBaseUrl = builder.Configuration["ApiBaseUrl"];
+
+            // Configure HttpClient with the correct API base URL
+            builder.Services.AddHttpClient<IProjectService, ProjectService>(client =>
+            {
+                client.BaseAddress = new Uri(apiBaseUrl);
+            });
 
 
 

@@ -4,14 +4,14 @@ namespace ProjectsApi.Data
 {
     public class DataInitializer
     {
-        public static void SeedDatabase(AppDbContext context)
+        public static void SeedDatabase(AppDbContext context, IWebHostEnvironment env)
         {
-            //if (!context.Projects.Any())
-            //{
-                var baseUrl = "https://localhost:7083";
-
-                // Create icons first
-                var dotnet = new TechIcon { Technology = "ASP.NET Core", Url = $"{baseUrl}/icons/Asp-net.png" };
+            
+            var baseUrl = env.IsDevelopment()
+                    ? "https://localhost:7083"
+                    : "https://luxmiportfolio-cee0e6eadjf6dda8.swedencentral-01.azurewebsites.net";
+            // Create icons first
+            var dotnet = new TechIcon { Technology = "ASP.NET Core", Url = $"{baseUrl}/icons/Asp-net.png" };
                 var razor = new TechIcon { Technology = "Razor Pages", Url = $"{baseUrl}/icons/razor-icon.png" };
                 var sql = new TechIcon { Technology = "SQL Server", Url = $"{baseUrl}/icons/Sql.png" };
                 var ef = new TechIcon { Technology = "Entity Framework", Url = $"{baseUrl}/icons/icons8-.net-framework-48.png" };

@@ -5,17 +5,17 @@ namespace DeveloperPortfolio.Services
 {
     public class ProjectService : IProjectService
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly HttpClient _httpClient;
 
-        public ProjectService(IHttpClientFactory httpClientFactory)
+        public ProjectService(HttpClient httpClient)
         {
-            _httpClientFactory = httpClientFactory;
+            _httpClient = httpClient;
         }
+
 
         public async Task<List<ProjectDTO>> GetProjectsAsync()
         {
-            var client = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync("https://localhost:7029/api/projects/dto");
+            var response = await _httpClient.GetAsync("api/projects/dto");
 
             if (!response.IsSuccessStatusCode)
                 return new();
