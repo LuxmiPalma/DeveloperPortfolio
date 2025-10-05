@@ -56,8 +56,8 @@
     </div>
 </section>
 
-@* 
-<!-- Testimonials Section -->
+
+@* <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section">
 
       <!-- Section Title -->
@@ -108,8 +108,8 @@
                   </div>
                 </div>
               </div>
-            </div><!-- End testimonial item --> *@
-@* 
+            </div><!-- End testimonial item -->
+
             
 
             
@@ -159,16 +159,17 @@
 
         @if (!string.IsNullOrEmpty(TempData["ContactSuccessMessage"] as string))
         {
-            <div class="alert alert-success text-center mt-3">
+            <div class="alert alert-success text-center mt-3" id="contact-success">
                 <i class="bi bi-check-circle me-2"></i>@TempData["ContactSuccessMessage"]
             </div>
         }
 
-
         <div class="row">
             <!-- Contact Form -->
             <div class="col-lg-8 mb-4">
-                <form method="post" asp-page-handler="Contact" novalidate>
+                <form method="post" novalidate>
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <input asp-for="ContactForm.Name" class="form-control border border-warning-subtle rounded-pill py-2 px-3" placeholder="Your Name" />

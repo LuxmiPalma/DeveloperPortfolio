@@ -40,7 +40,7 @@ namespace DeveloperPortfolio.Pages
 
                 using (var smtp = new SmtpClient("smtp.gmail.com", 587))
                 {
-                    smtp.Credentials = new NetworkCredential("luxmi.palma@.com", "hfmv jpyx gehz jmqd");
+                    smtp.Credentials = new NetworkCredential("luxmi.palma@gmail.com", "ksyk gtwu cjfs qanx");
                     smtp.EnableSsl = true;
                     smtp.Send(message);
                 }
