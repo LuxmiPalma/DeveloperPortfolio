@@ -9,9 +9,22 @@ namespace ProjectsApi.Data
             
             var baseUrl = env.IsDevelopment()
                     ? "https://localhost:7083"
-                    : "https://luxmiportfolio-cee0e6eadjf6dda8.swedencentral-01.azurewebsites.net";
-            // Create icons first
-            var dotnet = new TechIcon { Technology = "ASP.NET Core", Url = $"{baseUrl}/icons/Asp-net.png" };
+                    : "https://portfolio-luxmi.azurewebsites.net";
+
+            if (context.TechIcons.Any() || context.Projects.Any())
+            {
+                var bank = context.Projects.FirstOrDefault(p => p.Name == "BankApp");
+                if (bank != null)
+                {
+                    bank.LiveDemoUrl = "https://nextgenbankapp.azurewebsites.net/".Trim();
+                    context.SaveChanges();   
+                }
+                return;
+                  }
+
+
+
+                var dotnet = new TechIcon { Technology = "ASP.NET Core", Url = $"{baseUrl}/icons/Asp-net.png" };
                 var razor = new TechIcon { Technology = "Razor Pages", Url = $"{baseUrl}/icons/razor-icon.png" };
                 var sql = new TechIcon { Technology = "SQL Server", Url = $"{baseUrl}/icons/Sql.png" };
                 var ef = new TechIcon { Technology = "Entity Framework", Url = $"{baseUrl}/icons/icons8-.net-framework-48.png" };
@@ -33,7 +46,7 @@ namespace ProjectsApi.Data
                     Date = new DateTime(2025, 1, 15),
                     Description = "A simple banking system with account management and transactions.",
                     GitHubUrl = "https://github.com/LuxmiPalma/BankAB.git",
-                    LiveDemoUrl = "https://nextgenbank-h2a2hxhqa4a2gbgx.swedencentral-01.azurewebsites.net",
+                    LiveDemoUrl = "https://nextgenbankapp.azurewebsites.net/",
                     Technologies = new List<TechStack>
                     {
                         new TechStack { TechIcon = dotnet },
@@ -70,7 +83,8 @@ namespace ProjectsApi.Data
                     Date = new DateTime(2025, 2, 15),
                     Description = "A responsive front-end project built using HTML, CSS, React, Vite, and JavaScript. ",
                     GitHubUrl = "https://github.com/LuxmiPalma/Silicon-Vite.git",
-                    LiveDemoUrl = "https://example-silicon.com", 
+                    LiveDemoUrl = "https://siliconapp.netlify.app/",
+
                     Technologies = new List<TechStack>
 
                     {
@@ -89,7 +103,7 @@ namespace ProjectsApi.Data
                     Date = new DateTime(2025, 5, 20),
                     Description = "Personal developer portfolio with projects fetched via API.",
                     GitHubUrl = "https://github.com/LuxmiPalma/Lux-Cash-Register-New.git",
-                    LiveDemoUrl = "",
+                    
 
                     Technologies = new List<TechStack>
                     {
