@@ -17,10 +17,69 @@ namespace ProjectsApi.Data
                 if (bank != null)
                 {
                     bank.LiveDemoUrl = "https://nextgenbankapp.azurewebsites.net/".Trim();
-                    context.SaveChanges();   
                 }
+                if (!context.Projects.Any(p => p.Name == "Leasing Calculator"))
+                {
+                    var angularIcon = context.TechIcons.FirstOrDefault(t => t.Technology == "Angular");
+                    if (angularIcon == null)
+                    {
+                        angularIcon = new TechIcon
+                        {
+                            Technology = "Angular",
+                            Url = $"{baseUrl}/icons/angular.png"
+                        };
+
+                        context.TechIcons.Add(angularIcon);
+                    }
+
+                    var typeScriptIcon = context.TechIcons.FirstOrDefault(t => t.Technology == "TypeScript");
+                    if (typeScriptIcon == null)
+                    {
+                        typeScriptIcon = new TechIcon
+                        {
+                            Technology = "TypeScript",
+                            Url = $"{baseUrl}/icons/typescript.png"
+                        };
+
+                        context.TechIcons.Add(typeScriptIcon);
+                    }
+
+                    var htmlIcon = context.TechIcons.FirstOrDefault(t => t.Technology == "HTML");
+                    if (htmlIcon == null)
+                    {
+                        htmlIcon = new TechIcon
+                        {
+                            Technology = "HTML",
+                            Url = $"{baseUrl}/icons/Html.png"
+                        };
+
+                        context.TechIcons.Add(htmlIcon);
+                    }
+
+                    var leasingCalculatorProject = new Project
+                    {
+                        ProjectImg = $"{baseUrl}/images/leasing-calculator.png",
+                        Name = "Leasing Calculator",
+                        TechStack = "Angular, TypeScript, HTML, CSS",
+                        Date = new DateTime(2026, 6, 10),
+                        Description = "A business-oriented leasing calculator built with Angular and TypeScript. It calculates monthly leasing cost, total payable amount, total interest and payment schedule with focus on user interface, business logic and data presentation.",
+                        GitHubUrl = "https://github.com/LuxmiPalma/leasing-calculator",
+                        LiveDemoUrl = "https://LuxmiPalma.github.io/leasing-calculator/",
+                        Technologies = new List<TechStack>
+                        {
+                            new TechStack { TechIcon = angularIcon },
+                            new TechStack { TechIcon = typeScriptIcon },
+                            new TechStack { TechIcon = htmlIcon }
+
+                        }
+                    };
+
+                    context.Projects.Add(leasingCalculatorProject);
+                }
+
+                context.SaveChanges();
                 return;
-                  }
+            }
 
 
 
@@ -97,8 +156,26 @@ namespace ProjectsApi.Data
                     }
     
                 };
-                var CashRegisterProject = new Project
-                {
+               var leasingCalculatorSeedProject = new Project
+               {
+                   ProjectImg = $"{baseUrl}/images/leasing-calculator.png",
+                   Name = "Leasing Calculator",
+                   TechStack = "Angular, TypeScript, HTML, CSS",
+                   Date = new DateTime(2026, 6, 10),
+                   Description = "A business-oriented leasing calculator built with Angular and TypeScript. It calculates monthly leasing cost, total payable amount, total interest and payment schedule with focus on user interface, business logic and data presentation.",
+                   GitHubUrl = "https://github.com/LuxmiPalma/leasing-calculator",
+                   LiveDemoUrl = "https://LuxmiPalma.github.io/leasing-calculator/",
+                   Technologies = new List<TechStack>
+                   {
+                      new TechStack { TechIcon = angular },
+                      new TechStack { TechIcon = typescript },
+                      new TechStack { TechIcon = html }
+
+                   }
+               };
+
+              var CashRegisterProject = new Project
+              {
                     ProjectImg = $"{baseUrl}/images/cashReg.png",
                     Name = "Cash Register",
                     TechStack = "c#, SQL Server",
@@ -117,10 +194,10 @@ namespace ProjectsApi.Data
 
                     }
            
-                };
+              };
 
-                var bookingConsoleProject = new Project
-                {
+             var bookingConsoleProject = new Project
+             {
                     ProjectImg = $"{baseUrl}/images/Hotel.png",
                     Name = "Booking System",
                     TechStack = "ASP.NET Core, JavaScript, SQL Server",
@@ -135,11 +212,11 @@ namespace ProjectsApi.Data
                         new TechStack { TechIcon = sql },
                         new TechStack { TechIcon = csharp },
 
-                     }
-                };
+                    }
+             };
 
-                var ticTacToeProject = new Project
-                {
+             var ticTacToeProject = new Project
+             {
                     ProjectImg = $"{baseUrl}/images/game.png",
                     Name = "Console Game",
                     TechStack = "C#, Console App",
@@ -154,11 +231,11 @@ namespace ProjectsApi.Data
                         
 
                     }
-                };
+             };
 
 
-                var mathUtilityProject = new Project
-                {
+            var mathUtilityProject = new Project
+            {
                     ProjectImg = $"{baseUrl}/images/infinitapp.png",
                     Name = "Mathutility App",
                     TechStack = "ASP.NET Core, Entity Framework, SQL Server",
@@ -174,32 +251,9 @@ namespace ProjectsApi.Data
                     }
                 
                     
-                };
-
-                var leasingCalculatorProject = new Project
-                {
-                    ProjectImg = $"{baseUrl}/images/leasing-calculator.png",
-                    Name = "Leasing Calculator",
-                    TechStack = "Angular, TypeScript, HTML, CSS",
-                    Date = new DateTime(2026, 6, 10),
-                    Description = "A business-oriented leasing calculator built with Angular and TypeScript. It calculates monthly leasing cost, total payable amount, total interest and payment schedule with focus on user interface, business logic and data presentation.",
-                    GitHubUrl = "https://github.com/LuxmiPalma/leasing-calculator",
-                    LiveDemoUrl = "https://LuxmiPalma.github.io/leasing-calculator/",
-
-                    Technologies = new List<TechStack>
-
-                    {
-                         new TechStack { TechIcon = angular },
-                         new TechStack { TechIcon = typescript },
-                         new TechStack { TechIcon = html },
-                    }
-
-
-                
-                };
-
-                    context.Projects.AddRange(bankProject, adsProject, siliconProject,CashRegisterProject, bookingConsoleProject, leasingCalculatorProject,ticTacToeProject, mathUtilityProject);
-                    context.SaveChanges();
+            };
+            context.Projects.AddRange(bankProject, adsProject, siliconProject, leasingCalculatorSeedProject, CashRegisterProject,bookingConsoleProject,ticTacToeProject, mathUtilityProject);
+            context.SaveChanges();
         }
         
     }

@@ -31,8 +31,9 @@ using (var scope = app.Services.CreateScope())
     var ctx = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     var env = scope.ServiceProvider.GetRequiredService<IWebHostEnvironment>();
 
-    ctx.Database.EnsureCreated(); 
-    if (!ctx.Projects.Any()) DataInitializer.SeedDatabase(ctx, env);
+    ctx.Database.EnsureCreated();
+    DataInitializer.SeedDatabase(ctx, env);
+
 }
 
 app.UseSwagger();
