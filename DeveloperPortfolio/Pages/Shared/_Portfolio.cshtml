@@ -7,6 +7,32 @@
 
     string? Fix(string? url) => string.IsNullOrWhiteSpace(url) ? url : url.Replace(oldHost, newHost);
 }
+@functions {
+   string NormalizeDemo(string? url, string? projectName = null)
+    {
+        if (string.IsNullOrWhiteSpace(url)) return "";
+
+        // Special case: Silicon placeholder domains -> real demo
+        if (!string.IsNullOrEmpty(projectName)
+            && projectName.Equals("Silicon", StringComparison.OrdinalIgnoreCase)
+            && (url.Contains("example", StringComparison.OrdinalIgnoreCase)))
+            return "https://siliconapp.netlify.app/";
+
+        try
+        {
+            var u = new Uri(url.Trim());
+            // If it's any *.azurewebsites.net but not the correct one, force the right host
+            if (u.Host.EndsWith("azurewebsites.net", StringComparison.OrdinalIgnoreCase)
+                && !u.Host.Equals("nextgenbankapp.azurewebsites.net", StringComparison.OrdinalIgnoreCase))
+                return "https://nextgenbankapp.azurewebsites.net/";
+            return u.ToString();
+        }
+        catch 
+        { return "https://nextgenbankapp.azurewebsites.net/"; 
+        }
+    }
+}
+
 
 <div class="container bg-light ">
     <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
@@ -45,19 +71,28 @@
                     <div class="card-footer text-center">
                         @if (!string.IsNullOrEmpty(project.GitHubUrl))
                         {
-                            <a href="@project.GitHubUrl" target="_blank"
+                            <a href="@project.GitHubUrl"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               referrerpolicy="no-referrer"
                                class="btn btn-outline-teal mb-3 rounded-pill px-4 py-2 fw-bold">
                                 <i class="bi bi-github"></i> GitHub
                             </a>
                         }
                         @if (!string.IsNullOrEmpty(project.LiveDemoUrl))
                         {
-                            <a href="@project.LiveDemoUrl" target="_blank"
-                               class="btn btn-outline-teal mb-3 rounded-pill px-4 py-2 fw-bold">
-                                <i class="bi bi-box-arrow-up-right"></i> Live Demo
-                            </a>
+                            <a href="@NormalizeDemo(project.LiveDemoUrl, project.Name)"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              referrerpolicy="no-referrer"
+                              class="btn btn-outline-teal mb-3 rounded-pill px-4 py-2 fw-bold">
+                               <i class="bi bi-box-arrow-up-right"></i> Live Demo
+                             </a>
                         }
                     </div>
+               
+
+
                 </div>
             </div>
         }

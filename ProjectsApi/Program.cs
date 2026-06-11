@@ -41,4 +41,16 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    var bank = context.Projects.FirstOrDefault(p => p.Name == "BankApp");
+    if (bank != null)
+    {
+        bank.LiveDemoUrl = "https://nextgenbankapp.azurewebsites.net/";
+        context.SaveChanges();
+    }
+}
+
 app.Run();

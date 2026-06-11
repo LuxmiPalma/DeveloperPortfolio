@@ -34,8 +34,10 @@ namespace ProjectsApi.Data
                 var vite = new TechIcon { Technology = "Vite", Url = $"{baseUrl}/icons/Vite.png" };
                 var html = new TechIcon { Technology = "HTML", Url = $"{baseUrl}/icons/Html.png" };
                 var csharp = new TechIcon { Technology = "C#", Url = $"{baseUrl}/icons/C-sharp.png" };
+                var angular = new TechIcon { Technology = "Angular", Url = $"{baseUrl}/icons/angular.png" };
+                var typescript = new TechIcon { Technology = "TypeScript", Url = $"{baseUrl}/icons/typescript.png" };
 
-            context.TechIcons.AddRange(dotnet, razor, sql, ef, api, java, react, vite, html);
+            context.TechIcons.AddRange(dotnet, razor, sql, ef, api, java, react, vite, html, angular, typescript );
                 context.SaveChanges();
 
                 var bankProject = new Project
@@ -166,20 +168,39 @@ namespace ProjectsApi.Data
                     LiveDemoUrl = "",
                     Technologies = new List<TechStack>
                     { 
-                    new TechStack { TechIcon = dotnet },
-                    new TechStack { TechIcon = sql },
-                    new TechStack { TechIcon = csharp },
-},
-                    
+                      new TechStack { TechIcon = dotnet },
+                      new TechStack { TechIcon = sql },
+                      new TechStack { TechIcon = csharp },
+                    }
                 
-            
-
+                    
                 };
 
+                var leasingCalculatorProject = new Project
+                {
+                    ProjectImg = $"{baseUrl}/images/leasing-calculator.png",
+                    Name = "Leasing Calculator",
+                    TechStack = "Angular, TypeScript, HTML, CSS",
+                    Date = new DateTime(2026, 6, 10),
+                    Description = "A business-oriented leasing calculator built with Angular and TypeScript. It calculates monthly leasing cost, total payable amount, total interest and payment schedule with focus on user interface, business logic and data presentation.",
+                    GitHubUrl = "https://github.com/LuxmiPalma/leasing-calculator",
+                    LiveDemoUrl = "https://LuxmiPalma.github.io/leasing-calculator/",
 
-                context.Projects.AddRange(bankProject, adsProject, siliconProject,CashRegisterProject, bookingConsoleProject,ticTacToeProject,mathUtilityProject);
-                context.SaveChanges();
-            }
+                    Technologies = new List<TechStack>
+
+                    {
+                         new TechStack { TechIcon = angular },
+                         new TechStack { TechIcon = typescript },
+                         new TechStack { TechIcon = html },
+                    }
+
+
+                
+                };
+
+                    context.Projects.AddRange(bankProject, adsProject, siliconProject,CashRegisterProject, bookingConsoleProject, leasingCalculatorProject,ticTacToeProject, mathUtilityProject);
+                    context.SaveChanges();
+        }
         
     }
 }
