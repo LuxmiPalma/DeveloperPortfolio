@@ -146,3 +146,237 @@ input.form-control::placeholder {
         transform: scale(1.1);
         transition: transform 0.3s ease;
     }
+/* Modern Hero Section */
+.hero-modern {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fef9f5 0%, #f8f9fa 52%, #eef8f8 100%);
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0.35;
+}
+
+.hero-shape-one {
+    width: 380px;
+    height: 380px;
+    background: rgba(0, 128, 128, 0.16);
+    top: -120px;
+    right: -80px;
+}
+
+.hero-shape-two {
+    width: 260px;
+    height: 260px;
+    background: rgba(214, 169, 15, 0.14);
+    bottom: -90px;
+    left: -80px;
+}
+
+.hero-content {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.hero-greeting {
+    display: inline-block;
+    color: #008080;
+    font-size: 1.45rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hero-content h1 {
+    font-size: clamp(3.2rem, 6vw, 5.8rem);
+    line-height: 1.05;
+    font-weight: 800;
+    color: #1f2933;
+    margin-bottom: 1.2rem;
+    letter-spacing: -2px;
+}
+
+.hero-role {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    color: #008080;
+    font-weight: 600;
+    min-height: 48px;
+    margin-bottom: 1rem;
+}
+
+.hero-line {
+    width: 64px;
+    height: 3px;
+    background: #d6a90f;
+    border-radius: 999px;
+    margin: 1.5rem 0;
+}
+
+.hero-description {
+    max-width: 540px;
+    color: #4b5563;
+    font-size: 1.08rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.hero-primary-btn,
+.hero-secondary-btn {
+    padding: 0.9rem 2rem;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: all 0.25s ease;
+}
+
+.hero-primary-btn {
+    background: #008080;
+    color: #ffffff;
+    box-shadow: 0 14px 30px rgba(0, 128, 128, 0.22);
+}
+
+    .hero-primary-btn:hover {
+        background: #006b6b;
+        color: #ffffff;
+        transform: translateY(-2px);
+    }
+
+.hero-secondary-btn {
+    border: 1.5px solid #d6a90f;
+    color: #1f2933;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+    .hero-secondary-btn:hover {
+        background: #d6a90f;
+        color: #ffffff;
+        transform: translateY(-2px);
+    }
+
+.hero-skill-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(110px, 1fr));
+    gap: 1rem;
+    max-width: 650px;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(214, 169, 15, 0.35);
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 12px 25px rgba(31, 41, 51, 0.08);
+    transition: all 0.25s ease;
+}
+
+    .skill-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(0, 128, 128, 0.35);
+        box-shadow: 0 18px 35px rgba(31, 41, 51, 0.12);
+    }
+
+    .skill-card i {
+        display: block;
+        font-size: 1.55rem;
+        color: #008080;
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-card span {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #1f2933;
+    }
+
+.hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 680px;
+}
+
+.hero-image-card {
+    position: relative;
+    width: min(520px, 100%);
+}
+
+.hero-profile-img {
+    width: 100%;
+    max-height: 700px;
+    object-fit: contain;
+    object-position: bottom center;
+    filter: drop-shadow(0 24px 40px rgba(31, 41, 51, 0.16));
+}
+
+@media (max-width: 991px) {
+    .hero-content {
+        text-align: center;
+        padding-top: 120px;
+        padding-bottom: 40px;
+    }
+
+    .hero-line {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-skill-cards {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 auto;
+    }
+
+    .hero-image-wrapper {
+        min-height: auto;
+        padding-bottom: 40px;
+    }
+
+    .hero-profile-img {
+        max-height: 520px;
+    }
+
+    
+}
+
+@media (max-width: 575px) {
+    .hero-skill-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-role {
+        font-size: 1.4rem;
+    }
+
+    .hero-actions a {
+        width: 100%;
+    }
+
+}
